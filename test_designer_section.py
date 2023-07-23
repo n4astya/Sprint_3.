@@ -1,83 +1,72 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support.wait import WebDriverWait
+'''from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from locators import LoginPageLocators as L
 
 
-# переход к разделу «Булки»=
-def test_section_buns():
-    services = Service(executable_path='C:/Users/Анастасия/YandexProject/qa_python_tasks-main/chromedriver.exe')
-    driver = webdriver.Chrome(service=services)
+class TestDesignerSection:
+    # переход к разделу «Булки»
+    def test_section_buns(self, driver):
+        driver.get('https://stellarburgers.nomoreparties.site/')
 
-    driver.get('https://stellarburgers.nomoreparties.site/')
+        WebDriverWait(driver, 4).until(expected_conditions.presence_of_element_located(L.place_order1))
 
-    WebDriverWait(driver, 4).until(expected_conditions.presence_of_element_located(L.place_order))
+        driver.find_element(*L.place_order1).click()
 
-    driver.find_element(*L.place_order).click()
+        WebDriverWait(driver, 4).until(expected_conditions.presence_of_element_located(L.name))
 
-    WebDriverWait(driver, 4).until(expected_conditions.presence_of_element_located(L.name))
+        driver.find_element(*L.name).send_keys('n4asty@yandex.ru')
+        driver.find_element(*L.password).send_keys('1998mama')
+        driver.find_element(*L.enter).click()
 
-    driver.find_element(*L.name).send_keys('n4asty@yandex.ru')
-    driver.find_element(*L.password).send_keys('1998mama')
-    driver.find_element(*L.enter).click()
+        WebDriverWait(driver, 4).until(expected_conditions.presence_of_element_located(L.pa))
 
-    WebDriverWait(driver, 4).until(expected_conditions.presence_of_element_located(L.buns))
+        driver.find_element(*L.pa).click()
 
-    driver.find_element(*L.buns).click()
+        WebDriverWait(driver, 4).until(expected_conditions.presence_of_element_located(L.desingner))
 
-    assert WebDriverWait(driver, 4).until(expected_conditions.visibility_of_element_located(L.buns_log))
+        driver.find_element(*L.desingner).click()
 
-    driver.quit()
+        assert WebDriverWait(driver, 4).until(expected_conditions.visibility_of_element_located(L.buns_log))
 
+    # переход к разделу «Соусы»
+    def test_section_sauces(self, driver):
+        driver.get('https://stellarburgers.nomoreparties.site/')
 
-# переход к разделу «Соусы»
-def test_section_sauces():
-    services = Service(executable_path='C:/Users/Анастасия/YandexProject/qa_python_tasks-main/chromedriver.exe')
-    driver = webdriver.Chrome(service=services)
+        WebDriverWait(driver, 4).until(expected_conditions.presence_of_element_located(L.place_order1))
 
-    driver.get('https://stellarburgers.nomoreparties.site/')
+        driver.find_element(*L.place_order1).click()
 
-    WebDriverWait(driver, 4).until(expected_conditions.presence_of_element_located(L.place_order))
+        WebDriverWait(driver, 4).until(expected_conditions.presence_of_element_located(L.name))
 
-    driver.find_element(*L.place_order).click()
+        driver.find_element(*L.name).send_keys('n4asty@yandex.ru')
+        driver.find_element(*L.password).send_keys('1998mama')
+        driver.find_element(*L.enter).click()
 
-    WebDriverWait(driver, 4).until(expected_conditions.presence_of_element_located(L.name))
+        WebDriverWait(driver, 4).until(expected_conditions.presence_of_element_located(L.sauces))
 
-    driver.find_element(*L.name).send_keys('n4asty@yandex.ru')
-    driver.find_element(*L.password).send_keys('1998mama')
-    driver.find_element(*L.enter).click()
+        driver.find_element(*L.sauces).click()
 
-    WebDriverWait(driver, 4).until(expected_conditions.presence_of_element_located(L.sauces))
+        assert WebDriverWait(driver, 4).until(expected_conditions.visibility_of_element_located(L.sauces_log))
 
-    driver.find_element(*L.sauces).click()
+    # переход к разделу «Начинки»
+    def test_section_fillings(self, driver):
 
-    assert WebDriverWait(driver, 4).until(expected_conditions.visibility_of_element_located(L.sauces_log))
+        driver.get('https://stellarburgers.nomoreparties.site/')
 
-    driver.quit()
+        WebDriverWait(driver, 4).until(expected_conditions.presence_of_element_located(L.place_order1))
 
-# переход к разделу «Начинки»
-def test_section_fillings():
-    services = Service(executable_path='C:/Users/Анастасия/YandexProject/qa_python_tasks-main/chromedriver.exe')
-    driver = webdriver.Chrome(service=services)
+        driver.find_element(*L.place_order1).click()
 
-    driver.get('https://stellarburgers.nomoreparties.site/')
+        WebDriverWait(driver, 4).until(expected_conditions.presence_of_element_located(L.name))
 
-    WebDriverWait(driver, 4).until(expected_conditions.presence_of_element_located(L.place_order))
+        driver.find_element(*L.name).send_keys('n4asty@yandex.ru')
+        driver.find_element(*L.password).send_keys('1998mama')
+        driver.find_element(*L.enter).click()
 
-    driver.find_element(*L.place_order).click()
+        WebDriverWait(driver, 4).until(
+            expected_conditions.presence_of_element_located(L.fillings))
 
-    WebDriverWait(driver, 4).until(expected_conditions.presence_of_element_located(L.name))
+        driver.find_element(*L.fillings).click()
 
-    driver.find_element(*L.name).send_keys('n4asty@yandex.ru')
-    driver.find_element(*L.password).send_keys('1998mama')
-    driver.find_element(*L.enter).click()
-
-    WebDriverWait(driver, 4).until(
-        expected_conditions.presence_of_element_located(L.fillings))
-
-    driver.find_element(*L.fillings).click()
-
-    assert WebDriverWait(driver, 4).until(expected_conditions.visibility_of_element_located(L.fillings_log))
-
-    driver.quit()
+        assert WebDriverWait(driver, 4).until(expected_conditions.visibility_of_element_located(L.fillings_log))
+'''
