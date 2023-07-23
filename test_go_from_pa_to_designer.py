@@ -1,4 +1,4 @@
-'''from selenium import webdriver
+from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
@@ -53,4 +53,3 @@ class TestGoFromPAToDesigner:
             expected_conditions.presence_of_element_located(L.place_order))
 
         assert driver.current_url == 'https://stellarburgers.nomoreparties.site/'
-'''

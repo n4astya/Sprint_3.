@@ -1,4 +1,4 @@
-'''from selenium import webdriver
+from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
@@ -26,4 +26,3 @@ class TestLogOutOfAccount:
         driver.find_element(*L.exite).click()
 
         assert WebDriverWait(driver, 6).until(expected_conditions.presence_of_element_located(L.log_enter))
-'''

@@ -1,4 +1,4 @@
-'''from selenium import webdriver
+from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
@@ -24,4 +24,3 @@ class TestGoToPA:
         WebDriverWait(driver, 4).until(expected_conditions.presence_of_element_located(L.prof))
 
         assert driver.find_element(*L.prof).text == 'Профиль'
-'''

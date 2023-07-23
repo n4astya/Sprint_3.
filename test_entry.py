@@ -1,4 +1,4 @@
-'''from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from locators import LoginPageLocators as L
 
@@ -79,4 +79,3 @@ class TestEntry:
         WebDriverWait(driver, 4).until(expected_conditions.presence_of_element_located(L.place_order))
 
         assert driver.find_element(*L.place_order).text == 'Оформить заказ'
-'''

@@ -1,4 +1,4 @@
-'''from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from locators import LoginPageLocators as L
 
@@ -69,4 +69,3 @@ class TestDesignerSection:
         driver.find_element(*L.fillings).click()
 
         assert WebDriverWait(driver, 4).until(expected_conditions.visibility_of_element_located(L.fillings_log))
-'''
